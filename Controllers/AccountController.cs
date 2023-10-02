@@ -2,9 +2,11 @@
 using DataModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
@@ -13,6 +15,18 @@ namespace API.Controllers
         public AccountController(IAccountBLL accountBll)
         {
             _accountBll = accountBll;
+        }
+
+        [AllowAnonymous]
+        [HttpPost("login")]
+        public IActionResult login([FromBody] AuthenticateModel model)
+        {
+            var user = _accountBll.Login(model.Username, model.Password);
+            if(user == null)
+            {
+                return BadRequest(new { message = "Tài khoản hoặc mật khẩu không đúng!" });
+            }
+            return Ok(new { taikhoan = user.Username, Email = user.Email, token = user.token });
         }
 
         [Route("get-by-id/{acountID}")]

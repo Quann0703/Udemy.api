@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "FUGpz3Zn2yrtqUeeBavvz2nL1k870HaavFE7ZxDsBpC0lcXB0B2CyLfoH+MYWsLMIRTJZx0Om8Y138R0RrIGdA==",
+  "dgSpecHash": "DqUn+GnlVB1OaBhu2oQhoxvmz+Xd/EflCN0ljssxnOqt7+aQg9l8tJXQIZ4arpywmbFWqV/rawePrGx7lg2Kew==",
   "success": true,
   "projectFilePath": "D:\\các môn học\\năm 3\\PTPM hướng dịch vụ\\api.core\\Bài Tập Lớn\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tranq\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\tranq\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\tranq\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.22\\microsoft.aspnetcore.authentication.jwtbearer.6.0.22.nupkg.sha512",
     "C:\\Users\\tranq\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\tranq\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
     "C:\\Users\\tranq\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.1.0\\microsoft.data.sqlclient.sni.runtime.5.1.0.nupkg.sha512",
