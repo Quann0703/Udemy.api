@@ -29,5 +29,14 @@ namespace API.Controllers
             _accountBll.Create(model);
             return model;
         }
+
+        [Route("update_Account")]
+        [HttpPost]
+        public AccountModel UpdateItem([FromBody] AccountModel model)
+        {
+            _accountBll.Update(model);
+            return model;
+        }
+
     }
 }
