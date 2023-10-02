@@ -21,5 +21,13 @@ namespace API.Controllers
         {
             return _accountBll.GetDatabyID(acountID);
         }
+
+        [Route("create-Account")]
+        [HttpPost]
+        public AccountModel CreateItem([FromBody] AccountModel model)
+        {
+            _accountBll.Create(model);
+            return model;
+        }
     }
 }

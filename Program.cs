@@ -10,8 +10,6 @@ builder.Services.AddCors(options =>
 });
 // Add services to the container.
 builder.Services.AddTransient<IDatabaseHelper, DatabaseHelper>();
-builder.Services.AddTransient<IKhachRepository, KhachRepository>();
-builder.Services.AddTransient<IKhachBLL, KhachBLL>();
 builder.Services.AddTransient<IAccountRepository, AccountRepository>();
 builder.Services.AddTransient<IAccountBLL, AccountBLL>();
 // Add services to the container.
