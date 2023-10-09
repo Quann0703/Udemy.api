@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
-    [Authorize]
+    /*[Authorize]*/
     [Route("api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
@@ -28,19 +28,25 @@ namespace API.Controllers
             }
             return Ok(new { taikhoan = user.Username, Email = user.Email, token = user.token });
         }
-
+        [HttpGet("get-all")]
+        public IActionResult GetAll()
+        {
+            var dt = _accountBll.GetAll().Select(x => new { x.acountID, x.Password, x.Username, });
+            return Ok(dt);
+        } 
         [Route("get-by-id/{acountID}")]
         [HttpGet]
-        public AccountModel GetDatabyID(string acountID)
+        public IActionResult GetDatabyID(string acountID)
         {
-            return _accountBll.GetDatabyID(acountID);
+            var dt = _accountBll.GetDatabyID(acountID);
+            return Ok(dt);
         }
 
         [Route("create-Account")]
         [HttpPost]
-        public AccountModel CreateItem([FromBody] AccountModel model)
+        public AccountModel CreateItem([FromBody] AccountModel model, string name)
         {
-            _accountBll.Create(model);
+            _accountBll.Create(model,name);
             return model;
         }
 
@@ -51,6 +57,11 @@ namespace API.Controllers
             _accountBll.Update(model);
             return model;
         }
-
+        [HttpDelete("delete-account")]
+        public IActionResult DeleteItem(string acountID)
+        {
+            _accountBll.Delete(acountID);
+            return Ok(new { message = "xoa thanh cong" });
+        }
     }
 }
