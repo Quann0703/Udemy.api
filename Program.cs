@@ -18,6 +18,8 @@ builder.Services.AddTransient<IAccountRepository, AccountRepository>();
 builder.Services.AddTransient<IAccountBLL, AccountBLL>();
 builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserBLL, UserBLL>();
+builder.Services.AddTransient<INotificationRepository, NotificationRepository>();
+builder.Services.AddTransient<INotificationBLL, NotificationBLL>();
 // Add services to the container.
 
 builder.Services.AddControllers();
