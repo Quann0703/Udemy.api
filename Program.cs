@@ -1,4 +1,5 @@
 using BLL;
+using BLL.Interfaces;
 using DAL;
 using DataModel;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -20,6 +21,13 @@ builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserBLL, UserBLL>();
 builder.Services.AddTransient<INotificationRepository, NotificationRepository>();
 builder.Services.AddTransient<INotificationBLL, NotificationBLL>();
+builder.Services.AddTransient<IfieldsRepository, fieldRepository>();
+builder.Services.AddTransient<IfieldBLL, fieldBLL>();
+builder.Services.AddTransient<IcategorysRepository, categorysRepository>();
+builder.Services.AddTransient<IcategorysBLL, categorysBLL>();
+builder.Services.AddTransient<ItopicReopsitory, topicRepository>();
+builder.Services.AddTransient<ItopicBLL, topicBLL>();
+
 // Add services to the container.
 
 builder.Services.AddControllers();
