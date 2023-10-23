@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL.Interfaces
+namespace BLL
 {
-    public  class categorysBLL:IcategorysBLL
+    public class categorysBLL : IcategorysBLL
     {
         public IcategorysRepository _res;
 
@@ -35,3 +35,4 @@ namespace BLL.Interfaces
         }
     }
 }
+

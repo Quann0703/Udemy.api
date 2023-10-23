@@ -5,13 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL
+namespace BLL
 {
-    public interface ITeachRepository
+    public interface ITeachBLL
     {
         List<teachModel> GetAll();
-        teachModel GetDataById(string teachID);
+
+        teachModel GetDatabyID(string teachID);
+
         bool Create(teachModel model);
+
         bool Delete(string teachID);
     }
 }
