@@ -126,5 +126,26 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public List<CourseModel> Search(int page, int pageSize, out long total, string title)
+        {
+            string msgError = "";
+            total = 0;
+            try
+            {
+                var dt = _db.ExecuteSProcedureReturnDataTable(out msgError, "sp_course_search",
+                    "@page_index", page,
+                    "@page_size", pageSize,
+                    "@name", title
+                    );
+                    if (!string.IsNullOrEmpty(msgError))
+                        throw new Exception(msgError);
+                    if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
+                    return dt.ConvertTo<CourseModel>().ToList();
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

@@ -47,5 +47,34 @@ namespace API.Controllers
             _courseBLL.Delete(id);
             return Ok(new { message = "Xóa thành công" });
         }
+
+        [Route("search")]
+        [HttpPost]
+        public IActionResult Search([FromBody] Dictionary<string, object> fromData)
+        {
+            try
+            {
+                var page = int.Parse(fromData["page"].ToString());
+                var pageSize = int.Parse(fromData["pageSize"].ToString());
+                string title = "";
+                if (fromData.Keys.Contains("title") && !string.IsNullOrEmpty(Convert.ToString(fromData["title"])))
+                {
+                    title = Convert.ToString(fromData["title"]);
+                }
+                long total = 0;
+                var data = _courseBLL.Search(page, pageSize, out total, title);
+                return Ok(
+                    new
+                    {
+                        TotalItems = total,
+                        Data = data,
+                        page = page,
+                        PageSize = pageSize
+                    }
+                    );
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

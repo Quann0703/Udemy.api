@@ -20,7 +20,7 @@ namespace DataModel
 		public int topicID { get; set; }
 		public string status { get; set; }
 
-		public string Tcname { get; set; }
+		public string? Tcname { get; set; }
 
 
         public List<LessonModel>? list_json_Lessons { get; set; }

@@ -14,5 +14,6 @@ namespace BLL.Interfaces
         bool Create(CourseModel model);
         bool Update(CourseModel model);
         bool Delete(string courseID);
+        public List<CourseModel> Search(int page, int pageSize, out long total, string title);
     }
 }

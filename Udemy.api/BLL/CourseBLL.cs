@@ -40,5 +40,10 @@ namespace BLL
         {
             return _res.Delete(CourseId);
         }
+
+        public List<CourseModel> Search(int page, int pageSize, out long total, string title)
+        {
+            return _res.Search(page, pageSize, out total, title);
+        }
     }
 }

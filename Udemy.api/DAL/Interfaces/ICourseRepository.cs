@@ -15,5 +15,7 @@ namespace DAL.Interfaces
         bool Update(CourseModel model);
         bool Delete(string courseID);
 
+        public List<CourseModel> Search(int page ,int pageSize, out long total,string title);
+
     }
 }

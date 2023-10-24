@@ -37,7 +37,7 @@ namespace BLL
 
         public List<UserModel> Search(int page, int pageSize, out long total, string nameUser)
         {
-            return _res.Search(page,pageSize,out total,nameUser);
+            return _res.Search(page, pageSize, out total, nameUser);
         }
     }
 }
