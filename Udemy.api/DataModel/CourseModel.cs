@@ -23,6 +23,6 @@ namespace DataModel
 		public string? Tcname { get; set; }
 
 
-        public List<LessonModel>? list_json_Lessons { get; set; }
+        public List<LessonModel>? list_json_lessons { get; set; }
     }
 }

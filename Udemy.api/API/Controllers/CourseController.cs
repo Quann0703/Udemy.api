@@ -19,7 +19,7 @@ namespace API.Controllers
         [HttpGet("get-all")]
         public IActionResult GetAll()
         {
-            var dt = _courseBLL.GetAll().Select(x => new { x.courseID, x.title, x.couresImg,x.feecoures,x.teachID ,x.Tcname});
+            var dt = _courseBLL.GetAll().Select(x => new { x.courseID, x.title, x.couresImg,x.feecoures,x.teachID ,x.Tcname,x.list_json_lessons});
             return Ok(dt);
         }
 

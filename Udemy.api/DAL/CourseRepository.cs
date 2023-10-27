@@ -67,7 +67,8 @@ namespace DAL
                 "@decribe", model.decribe,
                 "@feecoures", model.feecoures,
                 "@topicID",model.topicID,
-                "@list_json_lessons", model.list_json_Lessons != null ? MessageConvert.SerializeObject(model.list_json_Lessons) : null);
+                "@status",model.status,
+                "@list_json_lessons", model.list_json_lessons != null ? MessageConvert.SerializeObject(model.list_json_lessons) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);
@@ -95,7 +96,7 @@ namespace DAL
                 "@feecoures", model.feecoures,
                 "@topicID", model.topicID,
                 "@status",model.status,
-                "@list_json_lessons", model.list_json_Lessons != null ? MessageConvert.SerializeObject(model.list_json_Lessons) : null);
+                "@list_json_lessons", model.list_json_lessons != null ? MessageConvert.SerializeObject(model.list_json_lessons) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
                     throw new Exception(Convert.ToString(result) + msgError);

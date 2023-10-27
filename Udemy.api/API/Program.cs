@@ -32,6 +32,8 @@ builder.Services.AddTransient<ICourseRepository, CourseRepository>();
 builder.Services.AddTransient<ICourseBLL, CourseBLL>();
 builder.Services.AddTransient<ITeachRepository, TeachRepository>();
 builder.Services.AddTransient<ITeachBLL, TeachBLL>();
+builder.Services.AddTransient<IInvoicesRepository, InvoicesRepository>();
+builder.Services.AddTransient<IInvoicesBLL, InvoicesBLL>();
 
 // Add services to the container.
 
