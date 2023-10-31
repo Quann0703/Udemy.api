@@ -35,5 +35,10 @@ namespace BLL
         {
             return _res.Delete(fieldID);
         }
+
+        public List<fieldsModel> Search(int page, int pageSize, out long total, string Namefield)
+        {
+            return _res.Search(page, pageSize, out total, Namefield);
+        }
     }
 }

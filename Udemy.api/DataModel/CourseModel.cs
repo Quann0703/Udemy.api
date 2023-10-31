@@ -22,7 +22,7 @@ namespace DataModel
 
 		public string? Tcname { get; set; }
 
-
+		public string? language { get; set; }
         public List<LessonModel>? list_json_lessons { get; set; }
     }
 }

@@ -16,5 +16,7 @@ namespace BLL
         bool Create(fieldsModel model);
 
         bool Delete(string fieldID);
+
+        public List<fieldsModel> Search(int page, int pageSize, out long total, string Namefield);
     }
 }

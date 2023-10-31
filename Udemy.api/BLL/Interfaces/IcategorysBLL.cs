@@ -15,6 +15,10 @@ namespace BLL
 
         bool Create(categorysModel model);
 
+        bool Update(categorysModel model);
+
         bool Delete(string IDcategory);
+
+        public List<categorysModel> Search(int page, int pageSize, out long total, string categoryname);
     }
 }

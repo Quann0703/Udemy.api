@@ -33,5 +33,10 @@ namespace BLL
         {
             return _res.Delete(topicID);
         }
+
+        public List<topicModel> Search(int page, int pageSize, out long total, string topicName)
+        {
+            return _res.Search(page, pageSize, out total, topicName);
+        }
     }
 }

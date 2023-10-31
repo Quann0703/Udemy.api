@@ -75,6 +75,27 @@ namespace DAL
             }
         }
 
+        public bool Update(categorysModel model)
+        {
+            string msgError = "";
+            try
+            {
+                var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_categorys_Update",
+                 "@IDcategory", model.IDcategory,
+                "@categoryname", model.categoryname,
+                "@decribe", model.decribe,
+                "@fieldID", model.fieldID);
+                if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(Convert.ToString(result) + msgError);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public bool Delete(string IDcategory)
         {
             string msgError = "";
@@ -88,6 +109,29 @@ namespace DAL
                     throw new Exception(Convert.ToString(result) + msgError);
                 }
                 return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<categorysModel> Search(int page, int pageSize, out long total, string categoryname)
+        {
+            string msgError = "";
+            total = 0;
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_search_categorys",
+                    "@page_index", page,
+                    "@page_size", pageSize,
+                    "@categoryname", categoryname
+                    );
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+                if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
+                return dt.ConvertTo<categorysModel>().ToList();
             }
             catch (Exception ex)
             {

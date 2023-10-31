@@ -68,6 +68,7 @@ namespace DAL
                 "@feecoures", model.feecoures,
                 "@topicID",model.topicID,
                 "@status",model.status,
+                "@language",model.language,
                 "@list_json_lessons", model.list_json_lessons != null ? MessageConvert.SerializeObject(model.list_json_lessons) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {
@@ -96,6 +97,7 @@ namespace DAL
                 "@feecoures", model.feecoures,
                 "@topicID", model.topicID,
                 "@status",model.status,
+                "@language", model.language,
                 "@list_json_lessons", model.list_json_lessons != null ? MessageConvert.SerializeObject(model.list_json_lessons) : null);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
                 {

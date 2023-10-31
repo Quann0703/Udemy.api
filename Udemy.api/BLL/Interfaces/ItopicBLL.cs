@@ -16,5 +16,7 @@ namespace BLL
         bool Create(topicModel model);
 
         bool Delete(string topicID);
+
+        public List<topicModel> Search(int page, int pageSize, out long total, string topicName);
     }
 }

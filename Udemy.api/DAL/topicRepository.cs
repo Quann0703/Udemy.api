@@ -94,5 +94,29 @@ namespace DAL
                 throw ex;
             }
         }
+
+        public List<topicModel> Search(int page, int pageSize, out long total, string topicName)
+        {
+            string msgError = "";
+            total = 0;
+            try
+            {
+                var dt = _dbHelper.ExecuteSProcedureReturnDataTable(out msgError, "sp_search_topic",
+                    "@page_index", page,
+                    "@page_size", pageSize,
+                    "@topicName", topicName
+                    );
+                if (!string.IsNullOrEmpty(msgError))
+                {
+                    throw new Exception(msgError);
+                }
+                if (dt.Rows.Count > 0) total = (long)dt.Rows[0]["RecordCount"];
+                return dt.ConvertTo<topicModel >().ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

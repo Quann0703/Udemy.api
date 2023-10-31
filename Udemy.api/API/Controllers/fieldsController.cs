@@ -43,5 +43,34 @@ namespace API.Controllers
             _fieldBll.Delete(fieldID);
             return Ok(new { message = "xoa thanh cong" });
         }
+
+        [Route("search")]
+        [HttpPost]
+        public IActionResult Search([FromBody] Dictionary<string, object> fromData)
+        {
+            try
+            {
+                var page = int.Parse(fromData["page"].ToString());
+                var pageSize = int.Parse(fromData["pageSize"].ToString());
+                string Namefield = "";
+                if (fromData.Keys.Contains("Namefield") && !string.IsNullOrEmpty(Convert.ToString(fromData["Namefield"])))
+                {
+                    Namefield = Convert.ToString(fromData["Namefield"]);
+                }
+                long total = 0;
+                var data = _fieldBll.Search(page, pageSize, out total, Namefield);
+                return Ok(
+                    new
+                    {
+                        TotalItems = total,
+                        Data = data,
+                        page = page,
+                        PageSize = pageSize
+                    }
+                    );
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

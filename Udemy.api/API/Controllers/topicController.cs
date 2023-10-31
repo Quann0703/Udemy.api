@@ -43,5 +43,33 @@ namespace API.Controllers
             _topicBll.Delete(topicID);
             return Ok(new { message = "xoa thanh cong" });
         }
+        [Route("search")]
+        [HttpPost]
+        public IActionResult Search([FromBody] Dictionary<string, object> fromData)
+        {
+            try
+            {
+                var page = int.Parse(fromData["page"].ToString());
+                var pageSize = int.Parse(fromData["pageSize"].ToString());
+                string topicName = "";
+                if (fromData.Keys.Contains("topicName") && !string.IsNullOrEmpty(Convert.ToString(fromData["topicName"])))
+                {
+                    topicName = Convert.ToString(fromData["topicName"]);
+                }
+                long total = 0;
+                var data = _topicBll.Search(page, pageSize, out total, topicName);
+                return Ok(
+                    new
+                    {
+                        TotalItems = total,
+                        Data = data,
+                        page = page,
+                        PageSize = pageSize
+                    }
+                    );
+
+            }
+            catch (Exception ex) { throw ex; }
+        }
     }
 }

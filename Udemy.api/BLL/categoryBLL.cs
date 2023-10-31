@@ -29,9 +29,19 @@ namespace BLL
         {
             return _res.Create(model);
         }
+
+        public bool Update(categorysModel model)
+        {
+            return _res.Update(model);
+        }
         public bool Delete(string IDcategory)
         {
             return _res.Delete(IDcategory);
+        }
+
+        public List<categorysModel> Search(int page, int pageSize, out long total, string categoryname)
+        {
+            return _res.Search(page, pageSize, out total, categoryname);
         }
     }
 }
